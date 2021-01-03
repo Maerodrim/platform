@@ -5,9 +5,12 @@ import com.chmmf.platform.model.Point;
 
 import java.util.List;
 
-public class ImplicitDifferenceScheme extends BaseMethod implements Method{
+public class ImplicitDifferenceScheme extends BaseMethod implements Method {
     @Override
     public List<Point> makeCalculation(InputDataDto inputDataDto) {
-        return null;
+        init(inputDataDto);
+        //calculation
+        saveAll(points);
+        return points;
     }
 }

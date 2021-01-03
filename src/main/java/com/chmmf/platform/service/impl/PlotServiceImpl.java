@@ -11,9 +11,6 @@ import org.springframework.ui.Model;
 
 public class PlotServiceImpl implements PlotService {
 
-    private final Method analyticalMethod = new AnalyticalMethod();
-    private final Method crankNicholsonScheme = new CrankNicholsonScheme();
-    private final Method implicitDifferenceScheme = new ImplicitDifferenceScheme();
     private final CalculationResultRepository calculationResultRepository;
 
     @Autowired
@@ -24,6 +21,11 @@ public class PlotServiceImpl implements PlotService {
     @Override
     public String plot(InputDataDto inputDataDto, Model model) {
         try {
+
+            Method analyticalMethod = new AnalyticalMethod();
+            Method crankNicholsonScheme = new CrankNicholsonScheme();
+            Method implicitDifferenceScheme = new ImplicitDifferenceScheme();
+
             CalculationResult calculationResult = CalculationResult.builder()
                     .name(inputDataDto.getName())
                     .date(null)//Todo add current Time
