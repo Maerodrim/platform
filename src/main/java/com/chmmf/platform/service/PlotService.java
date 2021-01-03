@@ -6,5 +6,5 @@ import org.springframework.ui.Model;
 
 @Service
 public interface PlotService {
-    String makeCalculation(InputDataDto inputDataDto, Model model);
+    String plot(InputDataDto inputDataDto, Model model);
 }

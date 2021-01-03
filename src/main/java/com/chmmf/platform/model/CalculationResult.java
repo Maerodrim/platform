@@ -27,6 +27,9 @@ public class CalculationResult {
     @Column(name = "numberPoint", unique = false, nullable = true)
     private Integer numberPoint;
 
+    @Column(name = "numberOfMembers", unique = false, nullable = true)
+    private Integer numberOfMembers;
+
     @Column(name = "lambda", unique = false, nullable = true)
     private double lambda;
 

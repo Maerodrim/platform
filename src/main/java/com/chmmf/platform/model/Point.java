@@ -18,9 +18,13 @@ public class Point {
     @Column(name = "y", unique = false, nullable = true)
     private double y;
 
-    public Point(double x, double y) {
+    @Column(name = "u", unique = false, nullable = true)
+    private double u;
+
+    public Point(double x, double y, double u) {
         this.x = x;
         this.y = y;
+        this.u = u;
     }
 
     public Point() {
@@ -30,19 +34,31 @@ public class Point {
         return idPoint;
     }
 
-    public double getX() {
-        return x;
+    public void setIdPoint(BigInteger idPoint) {
+        this.idPoint = idPoint;
     }
 
-    public double getY() {
-        return y;
+    public double getX() {
+        return x;
     }
 
     public void setX(double x) {
         this.x = x;
     }
 
+    public double getY() {
+        return y;
+    }
+
     public void setY(double y) {
         this.y = y;
+    }
+
+    public double getU() {
+        return u;
+    }
+
+    public void setU(double u) {
+        this.u = u;
     }
 }

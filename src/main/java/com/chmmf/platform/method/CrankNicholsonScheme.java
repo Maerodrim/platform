@@ -5,7 +5,7 @@ import com.chmmf.platform.model.Point;
 
 import java.util.List;
 
-public class CrankNicholsonScheme implements Method{
+public class CrankNicholsonScheme extends BaseMethod implements Method{
     @Override
     public List<Point> makeCalculation(InputDataDto inputDataDto) {
         return null;

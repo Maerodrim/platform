@@ -28,7 +28,7 @@ public class PlotController {
     }
 
     @RequestMapping(value = "/start", method = RequestMethod.POST)
-    public String gerResult(@ModelAttribute InputDataDto inputDataDto, Model model) {
-        return plotService.makeCalculation(inputDataDto, model);
+    public String getResult(@ModelAttribute InputDataDto inputDataDto, Model model) {
+        return plotService.plot(inputDataDto, model);
     }
 }
