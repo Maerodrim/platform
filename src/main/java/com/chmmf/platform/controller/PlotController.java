@@ -2,6 +2,8 @@ package com.chmmf.platform.controller;
 
 import com.chmmf.platform.dto.CalculationResultDto;
 import com.chmmf.platform.dto.InputDataDto;
+import com.chmmf.platform.service.PlotService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PlotController {
 
+    private final PlotService plotService;
+
+    @Autowired
+    public PlotController(PlotService plotService) {
+        this.plotService = plotService;
+    }
+
     @RequestMapping(value = "/start", method = RequestMethod.GET)
     public String start(Model model) {
         model.addAttribute("InputDataDto", new InputDataDto());
@@ -19,9 +28,7 @@ public class PlotController {
     }
 
     @RequestMapping(value = "/start", method = RequestMethod.POST)
-    public String gerResult(@ModelAttribute InputDataDto inputDataDto, Model model){
-        model.addAttribute("InputDataDto", inputDataDto);
-        model.addAttribute("CalculationResultDto", new CalculationResultDto());
-        return "result";
+    public String gerResult(@ModelAttribute InputDataDto inputDataDto, Model model) {
+        return plotService.makeCalculation(inputDataDto, model);
     }
 }

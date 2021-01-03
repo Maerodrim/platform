@@ -10,6 +10,7 @@ public class InputDataDto {
 
     private String name;
     private Integer numberPoint;
+    private Integer numberOfMembers;
     private double lambda;
     private double nRefraction;
     private double length;

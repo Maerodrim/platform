@@ -18,7 +18,7 @@ public class CalculationResult {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idCalculationResult;
 
-    @Column(name = "name", unique = false, nullable = true)
+    @Column(name = "name", unique = true, nullable = true)
     private String name;
 
     @Column(name = "date", unique = false, nullable = true)
