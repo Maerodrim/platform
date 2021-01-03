@@ -1,11 +1,16 @@
 package com.chmmf.platform.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
 @Data
 @Table(name = "CalculationResult")
 public class CalculationResult {
@@ -19,6 +24,9 @@ public class CalculationResult {
     @Column(name = "date", unique = false, nullable = true)
     private Date date;
 
+    @Column(name = "numberPoint", unique = false, nullable = true)
+    private Integer numberPoint;
+
     @Column(name = "lambda", unique = false, nullable = true)
     private double lambda;
 
@@ -31,8 +39,17 @@ public class CalculationResult {
     @Column(name = "radius", unique = false, nullable = true)
     private double radius;
 
-    @Column(name = "points", unique = false, nullable = true)
-    private List<Point> points;
+    @OneToMany
+    @Column(name = "analyticalSolution", unique = false, nullable = true)
+    private List<Point> analyticalSolution;
+
+    @OneToMany
+    @Column(name = "implicitSchemaSolution", unique = false, nullable = true)
+    private List<Point> implicitSchemaSolution;
+
+    @OneToMany
+    @Column(name = "solutionByTheCrankNicholsonScheme", unique = false, nullable = true)
+    private List<Point> solutionByTheCrankNicholsonScheme;
 
 
 }
