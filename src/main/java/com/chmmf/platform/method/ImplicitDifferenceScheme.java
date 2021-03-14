@@ -9,6 +9,7 @@ public class ImplicitDifferenceScheme extends BaseMethod implements Method {
     @Override
     public List<Point> makeCalculation(InputDataDto inputDataDto) {
         init(inputDataDto);
+
         //calculation
         saveAll(points);
         return points;
